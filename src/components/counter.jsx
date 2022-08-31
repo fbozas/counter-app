@@ -7,7 +7,7 @@ class Counter extends Component {
     render() { 
         return (
            <div>
-                <span>{this.state.count}</span>
+                <span>{2+2}</span>
                 <button>Increment</button>
            </div>
         );
