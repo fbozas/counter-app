@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = {  
-        count: 10,
+        count: 0,
         imageUrl: 'https://picsum.photos/200'
     } 
 
@@ -11,14 +11,18 @@ class Counter extends Component {
         fontWeight: "bold"
     }
     render() { 
-        let classes = "badge m-2 badge-";
-        classes += (this.state.count == 0) ? "warning" : "primary";
         return (
            <div>
-                <span className={classes}>{this.formatCount()}</span>
+                <span className={this.getBadgesClasses()}>{this.formatCount()}</span>
                 <button className='btn btn-secondary btn-sm'>Increment</button>
            </div>
         );
+    }
+
+    getBadgesClasses(){
+        let classes = "badge m-2 badge-";
+        classes += (this.state.count == 0) ? "warning" : "primary";
+        return classes;
     }
 
     formatCount(){
