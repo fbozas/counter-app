@@ -15,7 +15,7 @@ class Counter extends Component {
            <div>
                 <span className={this.getBadgesClasses()}>{this.formatCount()}</span>
                 <button className='btn btn-secondary btn-sm'>Increment</button>
-                <ul>{this.state.tags.map(tag => <li>{tag}</li>)}</ul>
+                <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
            </div>
         );
     }
