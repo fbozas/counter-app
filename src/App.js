@@ -8,7 +8,19 @@ import About from './pages/about';
 import React, { Component } from 'react';
 
 class App extends Component {
-  state = {  } 
+  state = {  
+    count: 1
+  }
+  
+  componentDidUpdate(prevProps, prevState){
+    console.log("preveProps",prevProps);
+    console.log("prevState",prevState);
+    console.log(this.state.count);
+
+    // if(prevProps.state.count != this.props.state.count){
+    //   // ajax call to get new data from the server
+    // }
+  }
 
   constructor(){
     super();
@@ -17,6 +29,7 @@ class App extends Component {
 
   componentDidMount(){
     console.log("App-Mounted");
+    this.setState({count: this.state.count + 1})
   }
 
   render() { 
