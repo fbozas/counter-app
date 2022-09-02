@@ -5,17 +5,24 @@ import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Profile from './pages/profile';
 import Home from './pages/home';
 import About from './pages/about';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/profile" element={<Profile/>}/>
-        <Route path='/about' element={<About/>}/>
-        <Route path="/" element={<Home/>}/>
-      </Routes>
-    </Router>
-  );
+class App extends Component {
+  state = {  } 
+
+  constructor(){
+    super();
+    console.log("App-Constructor");
+  }
+
+  componentDidMount(){
+    console.log("App-Mounted");
+  }
+
+  render() { 
+    console.log("App-Rendered");
+    return;
+  }
 }
-
+ 
 export default App;
