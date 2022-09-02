@@ -25,9 +25,9 @@ class App extends Component {
     console.log("Delete", post);
   }
 
-  componentDidMount(){
-    const promise = Axios.get("https://jsonplaceholder.typicode.com/posts");
-    console.log(promise);
+  async componentDidMount(){
+    const {data: posts} = await Axios.get("https://jsonplaceholder.typicode.com/posts");
+    this.setState({posts});
   }
   
   render() { 
