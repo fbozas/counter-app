@@ -8,13 +8,17 @@ import About from './pages/about';
 import React, { Component } from 'react';
 import Axios from 'axios';
 
+const apiEndpoint = "https://jsonplaceholder.typicode.com/posts";
 class App extends Component {
   state = {  
     posts:[]
   }
 
-  handleAdd = () => {
-    console.log("Add");
+  handleAdd = async () => {
+    const obj = {title: 'a', body: 'b'};
+    const {data: post} = await Axios.post(apiEndpoint, obj);
+    const posts = [post, ...this.state.posts];
+    this.setState({posts});
   }
 
   handleUpdate = post => {
@@ -26,7 +30,7 @@ class App extends Component {
   }
 
   async componentDidMount(){
-    const {data: posts} = await Axios.get("https://jsonplaceholder.typicode.com/posts");
+    const {data: posts} = await Axios.get(apiEndpoint);
     this.setState({posts});
   }
   
