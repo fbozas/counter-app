@@ -6,6 +6,7 @@ import Profile from './pages/profile';
 import Home from './pages/home';
 import About from './pages/about';
 import React, { Component } from 'react';
+import Axios from 'axios';
 
 class App extends Component {
   state = {  
@@ -22,6 +23,11 @@ class App extends Component {
 
   handleDelete = post => {
     console.log("Delete", post);
+  }
+
+  componentDidMount(){
+    const promise = Axios.get("https://jsonplaceholder.typicode.com/posts");
+    console.log(promise);
   }
   
   render() { 
